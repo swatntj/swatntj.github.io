@@ -1237,3 +1237,178 @@ body{
         margin-top: 40px;
     }
 }
+
+.system-card {
+    position: relative;
+    overflow: hidden;
+    transition: transform .35s ease;
+}
+
+.system-image {
+    position: relative;
+    overflow: hidden;
+    height: 220px;
+}
+
+.system-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .6s ease, filter .6s ease;
+}
+
+.system-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,.95),
+        rgba(0,0,0,.45),
+        rgba(0,0,0,.15)
+    );
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all .35s ease;
+}
+
+.system-card:hover .system-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.system-card:hover .system-image img {
+    transform: scale(1.12);
+    filter: brightness(.7);
+}
+
+.overlay-title {
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.overlay-desc {
+    color: rgba(255,255,255,.75);
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 14px;
+}
+
+.overlay-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.overlay-tags span {
+    padding: 6px 10px;
+    border: 1px solid rgba(255,255,255,.15);
+    background: rgba(255,255,255,.06);
+    color: white;
+    font-size: 11px;
+    border-radius: 999px;
+}
+
+.gfx {
+    padding: 120px 8%;
+}
+
+.gfx-sub {
+    color: rgba(255,255,255,.55);
+    max-width: 700px;
+    margin: -15px 0 40px;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.gfx-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.gfx-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 26px;
+    border: 1px solid rgba(255,255,255,.08);
+    background: #0a0a0a;
+    cursor: pointer;
+}
+
+.gfx-card.small {
+    height: 280px;
+}
+
+.gfx-card.wide {
+    height: 340px;
+    grid-column: span 2;
+}
+
+.gfx-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .7s ease, filter .7s ease;
+}
+
+.gfx-card:hover img {
+    transform: scale(1.08);
+    filter: brightness(.65) contrast(1.1);
+}
+
+.gfx-overlay {
+    position: absolute;
+    inset: 0;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,.95),
+        rgba(0,0,0,.35),
+        transparent
+    );
+    opacity: 0;
+    transition: opacity .35s ease;
+}
+
+.gfx-card:hover .gfx-overlay {
+    opacity: 1;
+}
+
+.gfx-overlay span {
+    color: rgba(255,255,255,.55);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.gfx-overlay h3 {
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+@media (max-width: 900px) {
+    .gfx-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gfx-card.wide {
+        grid-column: span 1;
+        height: 260px;
+    }
+
+    .gfx-card.small {
+        height: 260px;
+    }
+}
